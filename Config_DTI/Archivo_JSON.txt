@@ -1,0 +1,44 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "markdown-pdf.highlightStyle": "googlecode.css",
+    "markdown-pdf.margin.bottom": "20mm",
+    "markdown-pdf.margin.left": "20mm",
+    "markdown-pdf.margin.right": "20mm",
+    "markdown-pdf.margin.top": "30mm",
+    "cSpell.userWords": [
+        "extensiones",
+        "fabricantes",
+        "limitaciones",
+        "opción"
+    ],
+    "cSpell.language": "en,es", //Diccionario 
+
+
+    "Latino-propiedades.RutaBinarioLatino": "C:/Program Files/Latino/bin/latino.exe",
+    "markdown.extension.preview.autoShowPreviewToSide": true,
+    "markdown.extension.toc.omittedFromToc": {},
+    "markdown.extension.theming.decoration.renderLink": true,
+    "markdown.extension.theming.decoration.renderParagraph": true,
+    "markdown.extension.tableFormatter.normalizeIndentation": true,
+    "workbench.settings.applyToAllProfiles": [
+        "markdown-pdf.headerTemplate",
+        "markdown-pdf.styles"
+    ],
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+
+    // Formato Encabezado y Pie
+
+    "markdown-pdf.displayHeaderFooter": true,
+
+    "markdown-pdf.headerTemplate": "<div style='width: 100%; font-size: 12px; padding: 10px 30px 10px 30px; min-height: 40px; display: flex; justify-content: space-between; align-items: flex-end; font-family: Arial, sans-serif; border-bottom: 1px solid #ccc;'><div style='color: #2A6EBB; font-weight: bold; font-size: 20px;'>FADEA</div><div style='text-align: center; flex-grow: 1; font-weight: bold; font-size: 14px;'>Documento Técnico de Ingeniería</div><div style='font-size: 11px;'>Pág. <span class='pageNumber'></span> de <span class='totalPages'></span></div></div>",
+
+    "markdown-pdf.footerTemplate": "<div style='width: 100%; border-top: 1px solid #ccc; padding: 10px 30px; font-size: 10px; font-family: Arial, sans-serif; display: flex; justify-content: space-between; align-items: center; color: gray;'><div>Documento de Ingeniería</div><div style='text-align: center; flex-grow: 1;'>CLASIFICADO</div><div>%%ISO-DATE%%</div></div>",
+
+    // Formato General
+
+    "markdown-pdf.styles": [
+    "D:\\Desktop\\Config_DTI\\styles.css"
+    ]
+
+}

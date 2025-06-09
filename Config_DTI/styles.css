@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* ======================================= */
+/* Estilos Base del Documento */
+/* ======================================= */
+body {
+  font-family: 'Roboto', Arial, sans-serif; /* Fuente principal del documento, con Arial como respaldo */
+  font-size: 11px; /* Tamaño de letra base */
+  line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
+  color: #000; /* Color de texto predeterminado */
+  margin: 0; /* Eliminar margen predeterminado del body */
+  padding: 0 20px; /* Padding horizontal para el contenido principal */
+  word-wrap: break-word; /* Permite que palabras largas se rompan y pasen a la siguiente línea */
+  overflow-wrap: break-word; /* Estándar más moderno para word-wrap */
+  letter-spacing: 0.02em; /* Aumentar ligeramente la separación entre letras para evitar amontonamiento */
+}
+
+/* Reiniciar el contador para h2 al inicio del body para la numeración de encabezados */
+body {
+  counter-reset: h2;
+}
+
+/* ======================================= */
+/* Estilos de Encabezados (H1, H2, etc.) */
+/* ======================================= */
+h1 {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase; /* Texto en mayúsculas */
+  border-bottom: 2px solid #ccc; /* Línea divisoria inferior */
+  padding-bottom: 6px; /* Espacio entre el texto y la línea */
+  margin-top: 30px; /* Margen superior para separar de elementos anteriores */
+  counter-reset: h2; /* Reiniciar el contador de h2 al encontrar un h1 */
+  letter-spacing: 0.03em; /* Espaciado de letras para h1 */
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 24px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+  counter-increment: h2; /* Incrementar el contador de h2 */
+  counter-reset: h3;     /* Reiniciar el contador de h3 para subniveles */
+  letter-spacing: 0.025em; /* Espaciado de letras para h2 */
+}
+
+h2:before {
+  content: counter(h2) ". "; /* Mostrar el número de h2 (ej. "1. ", "2. ") */
+}
+
+h3 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 20px;
+  counter-increment: h3; /* Incrementar el contador de h3 */
+  counter-reset: h4;     /* Reiniciar el contador de h4 para subniveles */
+  letter-spacing: 0.02em; /* Espaciado de letras para h3 */
+}
+
+h3:before {
+  content: counter(h2) "." counter(h3) ". "; /* Mostrar h2.h3 (ej. "1.1. ", "1.2. ") */
+}
+
+h4 {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 18px;
+  counter-increment: h4; /* Incrementar el contador de h4 */
+  counter-reset: h5;     /* Reiniciar el contador de h5 para subniveles */
+  letter-spacing: 0.02em; /* Espaciado de letras para h4 */
+}
+
+h4:before {
+  content: counter(h2) "." counter(h3) "." counter(h4) ". "; /* Mostrar h2.h3.h4 (ej. "1.1.1. ") */
+}
+
+h5 {
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 16px;
+  counter-increment: h5; /* Incrementar el contador de h5 */
+  letter-spacing: 0.02em; /* Espaciado de letras para h5 */
+}
+
+h5:before {
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "; /* Mostrar h2.h3.h4.h5 */
+}
+
+h6 { /* Mantener el estilo base para h6 si no se especifica numeración */
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 14px;
+    letter-spacing: 0.02em; /* Espaciado de letras para h6 */
+}
+
+
+/* ======================================= */
+/* Estilos de Párrafos */
+/* ======================================= */
+p {
+  margin: 10px 0; /* Margen superior e inferior para separar párrafos */
+  line-height: 1.6; /* Altura de línea específica para párrafos */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: 0.02em; /* Espaciado de letras para párrafos */
+}
+
+/* ======================================= */
+/* Estilos de Listas No Ordenadas (ul) */
+/* ======================================= */
+ul {
+  list-style: none; /* Eliminar el bullet predeterminado del navegador */
+  margin: 10px 0 10px 20px; /* Margen para la lista, con sangría a la izquierda */
+  padding-left: 0; /* Asegurarse de que no haya padding extra del navegador */
+  line-height: 1.6; /* Altura de línea para los ítems de la lista */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+ul li {
+  padding-left: 1em; /* Espacio para el bullet personalizado */
+  position: relative; /* Necesario para posicionar el bullet con :before */
+  line-height: 1.6; /* Altura de línea específica para cada ítem de lista */
+  letter-spacing: 0.02em; /* Espaciado de letras para ítems de lista */
+}
+
+ul li:before {
+  position: absolute; /* Posicionamiento absoluto para el bullet */
+  left: 0; /* Alinear el bullet a la izquierda del padding */
+  content: ''; /* El contenido se define por cada nivel de anidación */
+}
+
+/* Nivel 1 de lista no ordenada */
+ul > li:before {
+  content: '•'; /* Bullet relleno */
+}
+
+/* Nivel 2 de lista no ordenada */
+ul ul > li:before {
+  content: '-'; /* Guion */
+}
+
+/* Nivel 3 de lista no ordenada */
+ul ul ul > li:before {
+  content: '•'; /* Bullet relleno (alternado) */
+}
+
+/* Nivel 4 de lista no ordenada */
+ul ul ul ul > li:before {
+  content: '-'; /* Guion (alternado) */
+}
+
+/* Nivel 5 y siguientes (opcional, si quieres más profundidad) */
+ul ul ul ul ul > li:before {
+  content: '•';
+}
+
+
+/* ======================================= */
+/* Estilos de Listas Ordenadas (ol) */
+/* ======================================= */
+ol {
+  list-style: none; /* Eliminar el estilo predeterminado del navegador */
+  margin: 10px 0 10px 20px; /* Margen para la lista, con sangría a la izquierda */
+  padding-left: 0; /* Asegurarse de que no haya padding extra del navegador */
+  line-height: 1.6; /* Altura de línea para los ítems de la lista */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+ol li {
+  padding-left: 1.5em; /* Espacio para el número/letra personalizada */
+  position: relative; /* Necesario para posicionar el número con :before */
+  line-height: 1.6; /* Altura de línea específica para cada ítem de lista */
+  letter-spacing: 0.02em; /* Espaciado de letras para ítems de lista */
+}
+
+ol li:before {
+  position: absolute; /* Posicionamiento absoluto para el número */
+  left: 0; /* Alinear el número a la izquierda del padding */
+  font-weight: normal; /* Para que el número/letra no sea negrita si la lista lo es */
+}
+
+/* Nivel 1 de lista ordenada (números: 1., 2., ...) */
+ol > li:before {
+  counter-increment: list-1; /* Incrementar el contador para este nivel */
+  content: counter(list-1) "."; /* Mostrar el número */
+}
+ol { counter-reset: list-1; } /* Reiniciar contador para cada lista de primer nivel */
+
+
+/* Nivel 2 de lista ordenada (letras minúsculas: a., b., ...) */
+ol ol > li:before {
+  counter-increment: list-2;
+  content: counter(list-2, lower-alpha) ".";
+}
+ol ol { counter-reset: list-2; }
+
+
+/* Nivel 3 de lista ordenada (vuelve a números romanos: I., II., ...) */
+ol ol ol > li:before {
+  counter-increment: list-3;
+  content: counter(list-3, upper-roman) "."; /* Corrección: Cambiado a números romanos para el nivel 3 */
+}
+ol ol ol { counter-reset: list-3; }
+
+
+/* Nivel 4 de lista ordenada (vuelve a letras minúsculas: a., b., ...) */
+ol ol ol ol > li:before {
+  counter-increment: list-4;
+  content: counter(list-4, lower-alpha) ".";
+}
+ol ol ol ol { counter-reset: list-4; }
+
+
+/* ======================================= */
+/* Estilos de Tablas */
+/* ======================================= */
+table {
+  width: 100%; /* Ancho completo del contenedor */
+  border-collapse: collapse; /* Eliminar el espacio entre bordes de celdas */
+  margin: 20px 0; /* Margen superior e inferior para separar la tabla */
+  font-size: 11px; /* Tamaño de fuente para la tabla */
+  table-layout: fixed; /* CRUCIAL: Fuerza a que el ancho de las columnas sea fijo y el texto se ajuste dentro de ellas */
+  word-wrap: break-word; /* Permite que el texto dentro de las celdas se ajuste */
+  overflow-wrap: break-word;
+}
+
+th {
+  background-color: #f0f0f0; /* Fondo gris claro para encabezados de tabla */
+  font-weight: bold; /* Texto en negrita */
+  border: 1px solid #ccc; /* Borde de la celda */
+  padding: 10px; /* Espacio interno de la celda */
+  text-align: left; /* Alineación de texto a la izquierda */
+  vertical-align: top; /* Alineación vertical del texto en la parte superior de la celda */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: 0.02em; /* Espaciado de letras para encabezados de tabla */
+}
+
+td {
+  border: 1px solid #ccc; /* Borde de la celda */
+  padding: 10px; /* Espacio interno de la celda */
+  text-align: left; /* Alineación de texto a la izquierda */
+  vertical-align: top; /* Alineación vertical del texto en la parte superior de la celda */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: 0.02em; /* Espaciado de letras para celdas de tabla */
+}
+
+/* ======================================= */
+/* Estilos de Código (inline y bloques) */
+/* ======================================= */
+/* Código en línea */
+code {
+  font-family: Consolas, monospace; /* Fuente monoespaciada para código */
+  background-color: #f2f2f2; /* Fondo gris claro */
+  padding: 2px 4px; /* Pequeño padding alrededor del código */
+  border-radius: 4px; /* Bordes redondeados */
+  word-wrap: break-word; /* Permite que el código en línea se rompa si es muy largo */
+  overflow-wrap: break-word;
+  letter-spacing: 0.01em; /* Espaciado de letras para código en línea (sutil) */
+}
+
+/* Bloques de código */
+pre {
+  background-color: #f2f2f2; /* Fondo gris claro */
+  padding: 10px; /* Espacio interno del bloque */
+  overflow: auto; /* Permite barra de desplazamiento si el contenido excede el ancho */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 10px; /* Tamaño de fuente más pequeño para código */
+  word-wrap: normal; /* Para código, generalmente no queremos que las palabras se rompan arbitrariamente */
+  white-space: pre-wrap; /* Mantiene saltos de línea y espacios del código fuente, pero permite que las líneas largas se ajusten al contenedor */
+  letter-spacing: 0; /* No aplicar espaciado de letras a bloques de código para mantener formato original */
+}
+
+/* ======================================= */
+/* Estilos para la Tabla de Contenidos (TOC) */
+/* (Requiere que la TOC sea HTML manual o generada dentro de <div class="toc-container">) */
+/* ======================================= */
+.toc-container {
+    border: 1px solid #e0e0e0; /* Borde sutil alrededor de la TOC */
+    padding: 15px 20px; /* Espacio interno */
+    margin: 20px 0 30px 0; /* Margen superior, inferior y lateral */
+    background-color: #fbfbfb; /* Fondo muy claro */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+.toc-container ul {
+    list-style: none; /* Eliminar bullets predeterminados */
+    margin: 0; /* Resetear márgenes de lista global */
+    padding: 0; /* Resetear padding de lista global */
+}
+
+.toc-container ul li {
+    font-size: 11px; /* Tamaño de fuente para los ítems de la TOC */
+    line-height: 1.4; /* Espaciado entre líneas */
+    margin-bottom: 3px; /* Espacio entre ítems */
+    padding-left: 1.2em; /* Espacio para el bullet/numeración personalizada */
+    position: relative; /* Necesario para posicionar el bullet/guion */
+    letter-spacing: 0.01em; /* Espaciado de letras para ítems de la TOC */
+}
+
+/* Re-aplicar el patrón de bullet/guion alternado para la TOC */
+.toc-container ul > li:before {
+    content: '•'; /* Bullet relleno para el primer nivel */
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+.toc-container ul ul > li:before {
+    content: '-'; /* Guion para el segundo nivel */
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+.toc-container ul ul ul > li:before {
+    content: '•'; /* Bullet relleno para el tercer nivel */
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+.toc-container ul ul ul ul > li:before {
+    content: '-'; /* Guion para el cuarto nivel */
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+
+/* ======================================= */
+/* Estilos para Notas, Precauciónes y Advertencias */
+/* ======================================= */
+
+/* Nota de "Nota"(Celeste con texto negro en negrita) */
+.nota {
+  background-color: hsl(194, 61%, 66%); /* Rojo oscuro (Bootstrap danger color) */
+  border: 1px solid #2a69b0; /* Borde rojo más oscuro */
+  padding: 10px 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #000; /* Color de texto negro */
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: 0.03em; /* Un poco más de espaciado para mayúsculas en negrita */
+}
+
+
+/* Nota de Precaución (Amarillo con texto negro en negrita y mayúsculas) */
+.precaucion {
+    background-color: #fffacd; /* Color amarillo claro (Lemon Chiffon) */
+    border: 1px solid #e0c200; /* Borde amarillo más oscuro */
+    padding: 10px 15px;
+    margin: 15px 0; /* Margen para separarlo del contenido adyacente */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    color: #000; /* Color de texto negro */
+    line-height: 1.5; /* Espaciado entre líneas para legibilidad */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: 0.03em; /* Un poco más de espaciado para mayúsculas en negrita */
+}
+
+/* Nota de Advertencia (Rojo con texto blanco en negrita y mayúsculas) */
+.advertencia {
+    background-color: #dc3545; /* Rojo oscuro (Bootstrap danger color) */
+    border: 1px solid #b02a37; /* Borde rojo más oscuro */
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff; /* Color de texto blanco */
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: 0.03em; /* Un poco más de espaciado para mayúsculas en negrita */
+}
